@@ -55,8 +55,8 @@
             "php artisan key:generate",
             "php artisan config:cache",
             "php artisan migrate",
-            "npm install",
-            "npm run build"
+            "yarn --frozen-lockfile",
+            "yarn build"
         ]
     },
     "extra": {
