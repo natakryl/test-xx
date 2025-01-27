@@ -5,12 +5,24 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
+import { useName } from '@/Composables/useName'; 
 
 const form = useForm({
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
+});
+
+
+
+onMounted(() => {
+    const { getNameFromUrl } = useName(); 
+    const nameFromUrl = getNameFromUrl(); 
+    if (nameFromUrl) {
+        form.name = nameFromUrl;
+    }
 });
 
 const submit = () => {
